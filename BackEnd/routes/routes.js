@@ -21,16 +21,20 @@ routes.post('/auth/signup', userAuth.signup);
 routes.post('/auth/login', userAuth.login);
 
 //Info User
-routes.post('/user/findUser', token, user.findUser);
+routes.post('/user/findUser', /*token,*/ user.findUser);
+//List User 
+routes.get('/user/listUser', /*token,*/ user.getListUser);
+
+
 
 //Page d'accueuil
-routes.post('/messagerie/accueuil', token,  message.pageAccueil);
+routes.post('/messagerie/accueuil', /*token,*/  message.pageAccueil);
 //Modifier la photo du User
 routes.put('/messagerie/accueuil/photo', token, image, userAuth.modifyPhoto);
 //Envoyer des messages
 routes.post('/messagerie/:room', token, message.sendMsg);
 //Recevoir les messages
-routes.get('/messagerie/:room', token, message.recvMsg);
+routes.get('/messagerie/:room', /*token,*/ message.recvMsg);
 
 
 module.exports = routes;

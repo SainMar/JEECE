@@ -7,8 +7,8 @@ const uniqueValidator = require('mongoose-unique-validator');
 const message = mongoose.Schema({
   room: { type: String, required: true},
   contenu: { type: String, required: true },
-  idSend: { type: Number, required: true },
-  idRecv: { type: Number, required: true },
+  idSend: { type: mongoose.Schema.ObjectId, required: true },
+  idRecv: { type: mongoose.Schema.ObjectId, required: true },
   date: { type: Date, required: true, default: Date.now }
 });
 

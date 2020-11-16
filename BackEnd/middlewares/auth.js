@@ -23,7 +23,7 @@ exports.signup = (req, res, next) => {
     .then(() => res.status(201).json({ message: 'Utilisateur créé !'}))
     .catch(error => res.status(400).json({ error: 'Paramètres incorrectes !' }));
   })
-  .catch(error => res.status(500).json({ error: "Error server !"}));
+  .catch(error => res.status(500).json({ error : "Error server !"}));
 };
 
 //Connexion (Email, Password)

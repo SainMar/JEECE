@@ -13,9 +13,32 @@ exports.findUser = (req, res) => {
         }
         
         res.status(200).json({
-            name: userS.prenom,
-            url_img: userS.urlPhoto,
+            message : "Yolo le toke ne marche pas ETRANGE",
+            prenom: userS.prenom,
+            nom: userS.nom,
+            email: userS.email,
+            urlPhoto: userS.urlPhoto,
         });
       })
       .catch(error => res.status(400).json({ error }));
+};
+
+
+exports.getListUser = (req, res) => {
+    
+    User.find()
+      .then(tabUser => {
+
+        if(!tabUser) {
+          console.log('ya pas lutilisateur');
+          return res.status(401).json({ error: 'Utilisateur non trouvé !' });
+        }
+
+        res.status(200).json({
+          listUser: tabUser
+        });
+
+
+      })
+      .catch(error => res.status(400).json({ error }) );
 };
